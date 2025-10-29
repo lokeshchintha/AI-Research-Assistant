@@ -17,15 +17,8 @@ const Login = () => {
       const result = await login(email, password);
       
       if (result && result.success) {
-        if (result.requiresOTP) {
-          // Redirect to OTP verification
-          navigate('/verify-otp', {
-            state: { email: result.email, type: 'login' }
-          });
-        } else {
-          // Direct login (old flow)
-          navigate('/papers');
-        }
+        // Direct login
+        navigate('/papers');
       }
       // If result.success is false, the error toast is already shown by the store
     } catch (error) {

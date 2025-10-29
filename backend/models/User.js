@@ -24,18 +24,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: 'https://api.dicebear.com/7.x/avataaars/svg?seed=default',
   },
-  otp: {
-    type: String,
-    select: false,
-  },
-  otpExpiry: {
-    type: Date,
-    select: false,
-  },
-  isVerified: {
-    type: Boolean,
-    default: false,
-  },
   papers: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Paper',

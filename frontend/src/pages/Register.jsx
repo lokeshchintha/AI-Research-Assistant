@@ -15,15 +15,8 @@ const Register = () => {
     e.preventDefault();
     const result = await register(name, email, password);
     if (result.success) {
-      if (result.requiresOTP) {
-        // Redirect to OTP verification
-        navigate('/verify-otp', {
-          state: { email: result.email, type: 'register' }
-        });
-      } else {
-        // Direct login (old flow)
-        navigate('/papers');
-      }
+      // Direct login after registration
+      navigate('/papers');
     }
   };
 

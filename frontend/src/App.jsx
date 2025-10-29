@@ -4,7 +4,6 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import VerifyOTP from './pages/VerifyOTP';
 import Upload from './pages/Upload';
 import Papers from './pages/Papers';
 import PaperDetail from './pages/PaperDetail';
@@ -48,7 +47,6 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/verify-otp" element={<VerifyOTP />} />
         
         {/* Protected Routes */}
         <Route

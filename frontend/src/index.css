@@ -1,0 +1,282 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-300 dark:border-gray-800;
+  }
+  
+  body {
+    @apply bg-gray-50 dark:bg-[#0a0a0f]
+           text-gray-900 dark:text-gray-100
+           antialiased transition-colors duration-300;
+  }
+
+  /* Light mode: Force ALL text to be dark by default */
+  html:not(.dark) {
+    color: #000000;
+  }
+
+  html:not(.dark) * {
+    color: inherit;
+  }
+
+  /* Landing page light mode - force dark text */
+  html:not(.dark) .landing-page * {
+    color: inherit !important;
+  }
+
+  /* Light mode: Headings must be black */
+  html:not(.dark) h1,
+  html:not(.dark) h2,
+  html:not(.dark) h3,
+  html:not(.dark) h4,
+  html:not(.dark) h5,
+  html:not(.dark) h6 {
+    color: #000000 !important;
+  }
+
+  /* Light mode: Preserve gray backgrounds with black text */
+  html:not(.dark) .bg-gray-50,
+  html:not(.dark) .bg-gray-100,
+  html:not(.dark) .bg-gray-200,
+  html:not(.dark) .bg-gray-300,
+  html:not(.dark) .bg-gray-400,
+  html:not(.dark) .bg-gray-500,
+  html:not(.dark) .bg-gray-600,
+  html:not(.dark) .bg-gray-700 {
+    background-color: inherit !important;
+  }
+
+  html:not(.dark) .bg-gray-50,
+  html:not(.dark) .bg-gray-100,
+  html:not(.dark) .bg-gray-200,
+  html:not(.dark) .bg-gray-300 {
+    color: #000000 !important;
+  }
+
+  html:not(.dark) .bg-gray-50 *,
+  html:not(.dark) .bg-gray-100 *,
+  html:not(.dark) .bg-gray-200 *,
+  html:not(.dark) .bg-gray-300 * {
+    color: #000000 !important;
+  }
+
+  /* Light mode: Medium to dark gray backgrounds need white text */
+  html:not(.dark) .bg-gray-400,
+  html:not(.dark) .bg-gray-500,
+  html:not(.dark) .bg-gray-600,
+  html:not(.dark) .bg-gray-700 {
+    color: white !important;
+  }
+
+  html:not(.dark) .bg-gray-400 *,
+  html:not(.dark) .bg-gray-500 *,
+  html:not(.dark) .bg-gray-600 *,
+  html:not(.dark) .bg-gray-700 * {
+    color: white !important;
+  }
+
+  /* Light mode: Text color classes - force visibility */
+  html:not(.dark) .text-gray-300,
+  html:not(.dark) .text-gray-400,
+  html:not(.dark) .text-gray-500,
+  html:not(.dark) .text-gray-600 {
+    color: #1f2937 !important; /* gray-800 - dark enough to see */
+  }
+
+  /* Light mode: Convert ALL dark backgrounds to light with subtle colors */
+  html:not(.dark) .bg-dark-card,
+  html:not(.dark) [class*="bg-dark"] {
+    background-color: #f8fafc !important; /* slate-50 - subtle blue-gray */
+    color: #0f172a !important; /* slate-900 */
+  }
+
+  html:not(.dark) .bg-dark-card *,
+  html:not(.dark) [class*="bg-dark"] * {
+    color: #0f172a !important;
+  }
+
+  html:not(.dark) .bg-dark-hover {
+    background-color: #f1f5f9 !important; /* slate-100 - slightly darker */
+    color: #0f172a !important;
+  }
+
+  html:not(.dark) .bg-dark-hover * {
+    color: #0f172a !important;
+  }
+
+  /* Light mode: Convert gray-800/900 to light blue-gray */
+  html:not(.dark) .bg-gray-800,
+  html:not(.dark) .bg-gray-900 {
+    background-color: #e0f2fe !important; /* sky-100 - light blue tint */
+    color: #0c4a6e !important; /* sky-900 */
+  }
+
+  html:not(.dark) .bg-gray-800 *,
+  html:not(.dark) .bg-gray-900 * {
+    color: #0c4a6e !important;
+  }
+
+  /* Light mode: Convert black backgrounds to white */
+  html:not(.dark) .bg-black {
+    background-color: white !important;
+    color: #000000 !important;
+  }
+
+  html:not(.dark) .bg-black * {
+    color: #000000 !important;
+  }
+
+  /* Light mode: Convert border colors */
+  html:not(.dark) .border-gray-800,
+  html:not(.dark) .border-gray-700,
+  html:not(.dark) .border-gray-600 {
+    border-color: #d1d5db !important; /* gray-300 */
+  }
+
+  /* Light mode: Override all border colors */
+  html:not(.dark) [class*="border-gray-8"],
+  html:not(.dark) [class*="border-gray-7"] {
+    border-color: #d1d5db !important; /* gray-300 */
+  }
+
+  /* Light mode: Hover borders */
+  html:not(.dark) .hover\:border-gray-700:hover,
+  html:not(.dark) .hover\:border-gray-800:hover {
+    border-color: #9ca3af !important; /* gray-400 */
+  }
+
+  /* Light mode: Fix card borders */
+  html:not(.dark) .card,
+  html:not(.dark) .card-glow {
+    border-color: #d1d5db !important; /* gray-300 */
+  }
+
+  html:not(.dark) .card:hover,
+  html:not(.dark) .card-glow:hover {
+    border-color: #9ca3af !important; /* gray-400 */
+  }
+
+  /* React Hot Toast - Force white text in light mode */
+  html:not(.dark) [data-sonner-toast],
+  html:not(.dark) [data-sonner-toast] *,
+  html:not(.dark) .go3958317564,
+  html:not(.dark) .go3958317564 * {
+    color: white !important;
+  }
+
+  /* Gradient buttons always white text */
+  .bg-gradient-to-r,
+  .bg-gradient-to-r *,
+  [class*="from-neon"],
+  [class*="from-neon"] * {
+    color: white !important;
+  }
+
+  /* Dark mode text colors */
+  html.dark body,
+  html.dark p,
+  html.dark span:not(.text-black):not(.text-neon-blue):not(.text-neon-purple):not(.text-neon-pink),
+  html.dark div:not(.text-black),
+  html.dark label,
+  html.dark li,
+  html.dark h1,
+  html.dark h2,
+  html.dark h3,
+  html.dark h4,
+  html.dark h5,
+  html.dark h6 {
+    color: #f3f4f6; /* gray-100 */
+  }
+
+  /* Preserve white text on gradient/colored backgrounds */
+  .text-white,
+  .bg-gradient-to-r *,
+  button.bg-gradient-to-r *,
+  [class*="from-neon"] * {
+    color: white !important;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-50 dark:bg-[#0a0a0f];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-500 dark:bg-gray-700 
+           rounded-full hover:bg-gray-600 dark:hover:bg-gray-600;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold rounded-lg 
+    hover:shadow-neon-blue transition-all duration-300 transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 
+    bg-white dark:bg-[#13131a]
+    text-gray-900 dark:text-gray-100 
+    font-semibold rounded-lg 
+    border border-gray-400 dark:border-gray-700
+    hover:border-neon-blue hover:shadow-neon-blue transition-all duration-300;
+  }
+
+  .card {
+    @apply bg-white dark:bg-[#13131a]
+    rounded-xl p-6 
+    border border-gray-300 dark:border-gray-800 
+    hover:border-gray-400 dark:hover:border-gray-700 
+    transition-all duration-300;
+  }
+
+  .card-glow {
+    @apply card hover:shadow-neon-blue;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 
+    bg-white dark:bg-[#1a1a24]
+    border border-gray-400 dark:border-gray-700 
+    rounded-lg 
+    text-gray-900 dark:text-gray-100
+    placeholder-gray-600 dark:placeholder-gray-500
+    focus:outline-none focus:border-neon-blue focus:shadow-neon-blue transition-all duration-300;
+  }
+
+  .neon-text {
+    @apply bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg 
+    text-gray-700 dark:text-gray-400 
+    hover:text-gray-900 dark:hover:text-white 
+    hover:bg-gray-200 dark:hover:bg-[#1a1a24]
+    transition-all duration-300 cursor-pointer;
+  }
+
+  .sidebar-link-active {
+    @apply sidebar-link bg-gradient-to-r from-neon-blue/20 to-neon-purple/20 
+    text-neon-blue dark:text-white 
+    border-l-4 border-neon-blue;
+  }
+}
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(90deg, #00d4ff, #b537f2);
+  padding: 2px;
+  border-radius: 12px;
+}
+
+.gradient-border-content {
+  @apply bg-white dark:bg-[#13131a];
+  border-radius: 10px;
+}

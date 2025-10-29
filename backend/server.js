@@ -42,7 +42,7 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // limit each IP to 100 requests per windowMs
 });
-app.use('/api/', limiter);
+app.use('/', limiter);
 
 // Routes
 app.get('/', (req, res) => {
@@ -52,8 +52,8 @@ app.get('/', (req, res) => {
   });
 });
 
-app.use('/api/auth', authRoutes);
-app.use('/api/papers', paperRoutes);
+app.use('/auth', authRoutes);
+app.use('/papers', paperRoutes);
 
 // Error handler
 app.use(errorHandler);
